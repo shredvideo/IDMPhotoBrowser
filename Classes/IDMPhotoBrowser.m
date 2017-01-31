@@ -667,7 +667,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     [_panGesture setMaximumNumberOfTouches:1];
 
     // Update
-    //[self reloadData];
+    [self reloadData];
 
 	// Super
     [super viewDidLoad];
