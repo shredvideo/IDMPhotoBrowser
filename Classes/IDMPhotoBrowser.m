@@ -642,7 +642,7 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     _counterLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 95, 40)];
     _counterLabel.textAlignment = NSTextAlignmentCenter;
     _counterLabel.backgroundColor = [UIColor clearColor];
-    _counterLabel.font = [UIFont fontWithName:@"Helvetica" size:17];
+    _counterLabel.font = [UIFont systemFontOfSize:17];
 
     if(_useWhiteBackgroundColor == NO) {
         _counterLabel.textColor = [UIColor whiteColor];
