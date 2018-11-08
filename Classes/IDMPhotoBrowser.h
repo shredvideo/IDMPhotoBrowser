@@ -67,6 +67,8 @@
 // Animation time (default .28)
 @property (nonatomic) float animationDuration;
 
+@property (nonatomic, strong) UIImageView *overlayImageView;
+
 // Init
 - (id)initWithPhotos:(NSArray *)photosArray;
 

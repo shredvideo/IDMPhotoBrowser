@@ -33,6 +33,8 @@
 @property (nonatomic, strong) id<IDMPhoto> photo;
 @property (nonatomic) CGFloat maximumDoubleTapZoomScale;
 
+@property (nonatomic, weak) UIImageView *overlayImageView;
+
 - (id)initWithPhotoBrowser:(IDMPhotoBrowser *)browser;
 - (void)displayImage;
 - (void)displayImageFailure;

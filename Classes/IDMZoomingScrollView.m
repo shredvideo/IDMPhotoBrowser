@@ -48,6 +48,9 @@
 		_photoImageView.backgroundColor = [UIColor clearColor];
 		[self addSubview:_photoImageView];
         
+        self.overlayImageView = browser.overlayImageView;
+        [self addSubview:_overlayImageView];
+        
         CGRect screenBound = [[UIScreen mainScreen] bounds];
         CGFloat screenWidth = screenBound.size.width;
         CGFloat screenHeight = screenBound.size.height;
@@ -123,6 +126,9 @@
             
 			_photoImageView.frame = photoImageViewFrame;
 			self.contentSize = photoImageViewFrame.size;
+            
+            _overlayImageView.hidden = NO;
+            _overlayImageView.center = _photoImageView.center;
 
 			// Set zoom to minimum zoom
 			[self setMaxMinZoomScalesForCurrentBounds];
@@ -131,6 +137,8 @@
 			_photoImageView.hidden = YES;
             
             _progressView.alpha = 1.0f;
+            
+            _overlayImageView.hidden = YES;
 		}
         
 		[self setNeedsLayout];
@@ -244,8 +252,11 @@
 	}
     
 	// Center
-	if (!CGRectEqualToRect(_photoImageView.frame, frameToCenter))
+	if (!CGRectEqualToRect(_photoImageView.frame, frameToCenter)) {
 		_photoImageView.frame = frameToCenter;
+        _overlayImageView.center = _photoImageView.center;
+    }
+        
 }
 
 #pragma mark - UIScrollViewDelegate
