@@ -48,7 +48,11 @@
 		_photoImageView.backgroundColor = [UIColor clearColor];
 		[self addSubview:_photoImageView];
         
-        self.overlayImageView = browser.overlayImageView;
+        //self.overlayImageView = browser.overlayImageView;
+        self.overlayImageView = [[UIImageView alloc] initWithFrame:browser.overlayImageView.frame];
+        _overlayImageView.contentMode = UIViewContentModeScaleAspectFit;
+        _overlayImageView.alpha = 0.5;
+        _overlayImageView.image = browser.overlayImageView.image;
         [self addSubview:_overlayImageView];
         
         CGRect screenBound = [[UIScreen mainScreen] bounds];
