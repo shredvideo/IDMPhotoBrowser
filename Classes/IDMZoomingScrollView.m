@@ -282,6 +282,8 @@
 }
 
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    _overlayImageView.transform = CGAffineTransformMakeScale(self.zoomScale, self.zoomScale);
+    _overlayImageView.center = _photoImageView.center;
     [self setNeedsLayout];
     [self layoutIfNeeded];
 }
