@@ -51,7 +51,7 @@
         //self.overlayImageView = browser.overlayImageView;
         self.overlayImageView = [[UIImageView alloc] initWithFrame:browser.overlayImageView.frame];
         _overlayImageView.contentMode = UIViewContentModeScaleAspectFit;
-        _overlayImageView.alpha = 0.5;
+        _overlayImageView.alpha = 0.8;
         _overlayImageView.image = browser.overlayImageView.image;
         [self addSubview:_overlayImageView];
         
