@@ -1358,10 +1358,18 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
     if ([self numberOfPhotos] > 0 && [photo underlyingImage]) {
         if(!_actionButtonTitles)
         {
-            // Activity view
-            NSMutableArray *activityItems = [NSMutableArray arrayWithObject:[photo underlyingImage]];
-            if (photo.caption) [activityItems addObject:photo.caption];
-
+            NSMutableArray *activityItems;
+            if ([photo respondsToSelector:@selector(activityItemSource)])
+            {
+                id<UIActivityItemSource> item = [photo performSelector:@selector(activityItemSource)];
+                activityItems = [NSMutableArray arrayWithObject:item];
+            }
+            else
+            {
+                activityItems = [NSMutableArray arrayWithObject:[photo underlyingImage]];
+                if (photo.caption) [activityItems addObject:photo.caption];
+            }
+            
             self.activityViewController = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:nil];
 
             __typeof__(self) __weak selfBlock = self;
