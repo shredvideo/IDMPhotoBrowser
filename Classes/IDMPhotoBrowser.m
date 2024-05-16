@@ -364,6 +364,12 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
 #pragma mark - Animation
 
 - (void)performPresentAnimation {
+    
+    if (!_scaleImage && !_senderViewForAnimation)
+    {
+        return;
+    }
+    
     self.view.alpha = 0.0f;
     _pagingScrollView.alpha = 0.0f;
 
